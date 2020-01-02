@@ -1,0 +1,42 @@
+<template>
+    <div align={alignmentValue} class={topLevelClass} style={topLevelStyle}>
+        <div class="container" style={containerStyle}>
+            <div class={titleClasses} style={titleStyle}>
+                {title}
+            </div>
+            <template for:each={socialServices} for:item='ss'>
+                <a key={ss.name} data-name={ss.name} onclick={handleSocialIconClick}>
+                    <img src={ss.image} width={iconWidth} style={imgStyle}/>
+                </a>
+            </template>
+        </div>
+    </div>
+    
+    <a href="#" target="_blank" id="calculatedSocialLink" class="slds-hide calculatedSocialLink"></a>
+
+    <template if:true={openModal}>
+        <div class="demo-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={doCloseModal}>
+                            <lightning-icon icon-name="utility:close" size="small">
+                            </lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2>Copy Link</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <center>
+                            <c-ccp-social-share-copy-clipboard link-output-value={linkOutputValue}></c-ccp-social-share-copy-clipboard>
+                        </center>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+</template>

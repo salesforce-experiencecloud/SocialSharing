@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="ccpSocialShare">
+    <apiVersion>47.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Social Share</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="alignment" type="String" datasource="center,left,right,fixed-left,fixed-right" label="Alignment" description="Alignment: Center, Left, Right, Fixed Left, Fixed Right" default="center"/>
+            <property name="leftMargin" type="String" label="Left Margin" description="Left Margin" default="0"/>
+            <property name="rightMargin" type="String" label="Right Margin" description="Right Margin" default="0"/>
+            <property name="title" type="String" label="Title" description="Title" default="Social Share: "/>
+            <property name="titleAlignment" type="String" datasource="left,center,right" label="Title Alignment" description="Title Alignment: Left, Center, Right" default="left"/>
+            <property name="titleStyle" type="String" label="Title Style" description="Title Style (CSS)" default=""/>
+            <property name="iconWidth" type="Integer" label="Width of Social Icon" description="Define the width of the social icons" default="32"/>
+            <property name="iconMargin" type="Integer" label="Social Icon Margins" description="Margin in pixels between each of the Social Icons" default="2"/>
+            <property name="iconType" type="String" datasource="circle,square" label="Social Icon Type" description="Social Icon Type: Cirlce or Square" default="circle"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

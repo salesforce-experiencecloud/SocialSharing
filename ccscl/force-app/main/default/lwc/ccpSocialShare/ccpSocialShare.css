@@ -1,0 +1,76 @@
+.container a:first-of-type > img 
+{
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+}
+
+.container a:last-of-type  > img 
+{
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.center
+{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+}
+
+.left
+{
+    justify-content: left;
+    align-content: left;
+    align-items: left;
+}
+
+.right
+{
+    justify-content: right;
+    align-content: right;
+    align-items: right;
+}
+
+.text-align_center
+{
+    text-align: center;
+}
+
+.text-align_left
+{
+    text-align: left;
+}
+
+.text-align_right
+{
+    text-align: right;
+}
+
+.fixed .title
+{
+    display: none;
+}
+
+.fixed .container > a
+{
+    display: block;
+}
+
+.fixed
+{
+    position: fixed;
+    top: 25%;
+    z-index: 10;
+}
+
+.fixed-left
+{
+    left: 0;
+}
+
+.fixed-right
+{
+    right: 0;
+}
