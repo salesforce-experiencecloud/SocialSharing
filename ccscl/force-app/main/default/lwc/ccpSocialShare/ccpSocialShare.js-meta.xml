@@ -26,6 +26,7 @@
             <property name="hideWhatsapp" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Whatsapp" description="Hide Whatsapp" default="None"/>
             <property name="hideEmail" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Email" description="Hide Email" default="None"/>
             <property name="hideLink" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Link" description="Hide Link" default="None"/>
+            <property name="hideReddit" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Reddit" description="Hide Reddit" default="None"/>
             <property name="hideVkontakte" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Vkontakte" description="Hide Vkontakte" default="None"/>
             <property name="hideStumbleupon" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Stumbleupon" description="Hide Stumbleupon" default="None"/>
             <property name="hideTelegram" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Telegram" description="Hide Telegram" default="None"/>
@@ -36,7 +37,7 @@
             <property name="hideTumblr" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Tumblr" description="Hide Tumblr" default="None"/>
 
             <property name="order" type="String" label="Order" description="Comma separated list of social services names in order. Example: facebook,linkedin,pinterest,twitter,whatsapp,email,link,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr" 
-            default="facebook,linkedin,pinterest,twitter,whatsapp,email,link,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr"/>
+            default="facebook,linkedin,pinterest,twitter,whatsapp,email,link,reddit,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr"/>
 
             <property name="imageOverrideFacebook" type="String" label="Override Image Url for Facebook" description="Override Image Url for Facebook. Square dimensions, example: 120px X 120px" default=""/>
             <property name="imageOverrideLinkedin" type="String" label="Override Image Url for Linkedin" description="Override Image Url for Linkedin. Square dimensions, example: 120px X 120px" default=""/>
@@ -45,6 +46,7 @@
             <property name="imageOverrideWhatsapp" type="String" label="Override Image Url for Whatsapp" description="Override Image Url for Whatsapp. Square dimensions, example: 120px X 120px" default=""/>
             <property name="imageOverrideEmail" type="String" label="Override Image Url for Email" description="Override Image Url for Email. Square dimensions, example: 120px X 120px" default=""/>
             <property name="imageOverrideLink" type="String" label="Override Image Url for Link" description="Override Image Url for Link. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideReddit" type="String" label="Override Image Url for Reddit" description="Override Image Url for Reddit. Square dimensions, example: 120px X 120px" default=""/>
             <property name="imageOverrideVkontakte" type="String" label="Override Image Url for Vkontakte" description="Override Image Url for Vkontakte. Square dimensions, example: 120px X 120px" default=""/>
             <property name="imageOverrideStumbleupon" type="String" label="Override Image Url for Stumbleupon" description="Override Image Url for Stumbleupon. Square dimensions, example: 120px X 120px" default=""/>
             <property name="imageOverrideTelegram" type="String" label="Override Image Url for Telegram" description="Override Image Url for Telegram. Square dimensions, example: 120px X 120px" default=""/>

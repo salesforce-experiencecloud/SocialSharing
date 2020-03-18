@@ -11,6 +11,7 @@ const urlMap = new Map([
                 ['whatsapp','https://wa.me/?text=[post-url] [post-title] [post-title]'],
                 ['email', 'mailto:?subject=Check out this link: [post-title]&body=Check out this link: [post-title] - [post-url]'],
                 ['link','[post-url]'],
+                ['reddit','http://www.reddit.com/submit?url=[post-url]&title=[post-title]'],
                 ['vkontakte','https://vk.com/share.php?url=[post-url]&title=[post-title]'],
                 ['stumbleupon','http://www.stumbleupon.com/submit?url=[post-url]&title=[post-title]'],
                 ['telegram','tg://msg?text=[post-url] [post-title]'],
@@ -43,6 +44,7 @@ export default class ccpSocialShare extends LightningElement {
     @api hideWhatsapp = 'None';
     @api hideEmail = 'None';
     @api hideLink = 'None';
+    @api hideReddit = 'None';
     @api hideVkontakte = 'None';
     @api hideStumbleupon = 'None';
     @api hideTelegram = 'None';
@@ -51,6 +53,7 @@ export default class ccpSocialShare extends LightningElement {
     @api hidePocket = 'None';
     @api hideFbmessenger = 'None';
     @api hideTumblr = 'None';
+    
 
     @api imageOverrideFacebook;
     @api imageOverrideLinkedin;
@@ -59,6 +62,7 @@ export default class ccpSocialShare extends LightningElement {
     @api imageOverrideWhatsapp;
     @api imageOverrideEmail;
     @api imageOverrideLink;
+    @api imageOverrideReddit;
     @api imageOverrideVkontakte;
     @api imageOverrideStumbleupon;
     @api imageOverrideTelegram;
@@ -68,7 +72,7 @@ export default class ccpSocialShare extends LightningElement {
     @api imageOverrideFbmessenger;
     @api imageOverrideTumblr;
 
-    @api order = 'facebook,linkedin,pinterest,twitter,whatsapp,email,link,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr';
+    @api order = 'facebook,linkedin,pinterest,twitter,whatsapp,email,link,reddit,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr';
     
     @api
     get titleClasses()
