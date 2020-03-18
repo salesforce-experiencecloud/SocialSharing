@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="ccpSocialShare">
-    <apiVersion>47.0</apiVersion>
+    <apiVersion>48.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>Social Share</masterLabel>
     <targets>
@@ -12,12 +12,48 @@
             <property name="alignment" type="String" datasource="center,left,right,fixed-left,fixed-right" label="Alignment" description="Alignment: Center, Left, Right, Fixed Left, Fixed Right" default="center"/>
             <property name="leftMargin" type="String" label="Left Margin" description="Left Margin" default="0"/>
             <property name="rightMargin" type="String" label="Right Margin" description="Right Margin" default="0"/>
-            <property name="title" type="String" label="Title" description="Title" default="Social Share: "/>
+            <property name="title" type="String" label="Title" description="Title - will not display in 'fixed' Alignment" default="Social Share: "/>
             <property name="titleAlignment" type="String" datasource="left,center,right" label="Title Alignment" description="Title Alignment: Left, Center, Right" default="left"/>
             <property name="titleStyle" type="String" label="Title Style" description="Title Style (CSS)" default=""/>
             <property name="iconWidth" type="Integer" label="Width of Social Icon" description="Define the width of the social icons" default="32"/>
             <property name="iconMargin" type="Integer" label="Social Icon Margins" description="Margin in pixels between each of the Social Icons" default="2"/>
             <property name="iconType" type="String" datasource="circle,square" label="Social Icon Type" description="Social Icon Type: Cirlce or Square" default="circle"/>
+            
+            <property name="hideFacebook" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Facebook" description="Hide Facebook" default="None"/>
+            <property name="hideLinkedin" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Linkedin" description="Hide Linkedin" default="None"/>
+            <property name="hidePinterest" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Pinterest" description="Hide Pinterest" default="None"/>
+            <property name="hideTwitter" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Twitter" description="Hide Twitter" default="None"/>
+            <property name="hideWhatsapp" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Whatsapp" description="Hide Whatsapp" default="None"/>
+            <property name="hideEmail" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Email" description="Hide Email" default="None"/>
+            <property name="hideLink" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Link" description="Hide Link" default="None"/>
+            <property name="hideVkontakte" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Vkontakte" description="Hide Vkontakte" default="None"/>
+            <property name="hideStumbleupon" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Stumbleupon" description="Hide Stumbleupon" default="None"/>
+            <property name="hideTelegram" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Telegram" description="Hide Telegram" default="None"/>
+            <property name="hideLine" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Line" description="Hide Line" default="None"/>
+            <property name="hideViber" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Viber" description="Hide Viber" default="None"/>
+            <property name="hidePocket" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Pocket" description="Hide Pocket" default="None"/>
+            <property name="hideFbmessenger" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Facebook Messenger" description="Hide Facebook Messenger" default="None"/>
+            <property name="hideTumblr" type="String" datasource="None, Mobile, Tablet, Desktop, Mobile and Tablet, Mobile and Desktop, Tablet and Desktop, All" label="Hide Tumblr" description="Hide Tumblr" default="None"/>
+
+            <property name="order" type="String" label="Order" description="Comma separated list of social services names in order. Example: facebook,linkedin,pinterest,twitter,whatsapp,email,link,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr" 
+            default="facebook,linkedin,pinterest,twitter,whatsapp,email,link,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr"/>
+
+            <property name="imageOverrideFacebook" type="String" label="Override Image Url for Facebook" description="Override Image Url for Facebook. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideLinkedin" type="String" label="Override Image Url for Linkedin" description="Override Image Url for Linkedin. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverridePinterest" type="String" label="Override Image Url for Pinterest" description="Override Image Url for Pinterest. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideTwitter" type="String" label="Override Image Url for Twitter" description="Override Image Url for Twitter. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideWhatsapp" type="String" label="Override Image Url for Whatsapp" description="Override Image Url for Whatsapp. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideEmail" type="String" label="Override Image Url for Email" description="Override Image Url for Email. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideLink" type="String" label="Override Image Url for Link" description="Override Image Url for Link. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideVkontakte" type="String" label="Override Image Url for Vkontakte" description="Override Image Url for Vkontakte. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideStumbleupon" type="String" label="Override Image Url for Stumbleupon" description="Override Image Url for Stumbleupon. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideTelegram" type="String" label="Override Image Url for Telegram" description="Override Image Url for Telegram. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideLine" type="String" label="Override Image Url for Line" description="Override Image Url for Line. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideViber" type="String" label="Override Image Url for Viber" description="Override Image Url for Viber. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverridePocket" type="String" label="Override Image Url for Pocket" description="Override Image Url for Pocket. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideFbmessenger" type="String" label="Override Image Url for Facebook Messenger" description="Override Image Url for Facebook Messenger. Square dimensions, example: 120px X 120px" default=""/>
+            <property name="imageOverrideTumblr" type="String" label="Override Image Url for Tumblr" description="Override Image Url for Tumblr. Square dimensions, example: 120px X 120px" default=""/>
+
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

@@ -1,17 +1,26 @@
 import { LightningElement, api } from 'lwc';
 import SOCIALICONS_URL from '@salesforce/resourceUrl/Social_Icons';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import FORM_FACTOR from '@salesforce/client/formFactor';
 
 const urlMap = new Map([
                 ['facebook', 'https://www.facebook.com/sharer.php?u=[post-url]'],
-                ['linkedin', 'https://www.linkedin.com/shareArticle?url=[post-url]'],
-                ['pinterest','https://pinterest.com/pin/create/bookmarklet/?url=[post-url]'],
-                ['twitter','https://twitter.com/share?url=[post-url]'],
-                ['whatsapp','https://wa.me/?text=[post-url]'],
-                ['email', 'mailto:?subject=Check out this link&body=Check out this link: [post-url]'],
-                ['link','[post-url]']
+                ['linkedin', 'https://www.linkedin.com/shareArticle?url=[post-url]&title=[post-title]'],
+                ['pinterest','https://pinterest.com/pin/create/bookmarklet/?url=[post-url]&description=[post-title]'],
+                ['twitter','https://twitter.com/share?url=[post-url]&text=[post-title]'],
+                ['whatsapp','https://wa.me/?text=[post-url] [post-title] [post-title]'],
+                ['email', 'mailto:?subject=Check out this link: [post-title]&body=Check out this link: [post-title] - [post-url]'],
+                ['link','[post-url]'],
+                ['vkontakte','https://vk.com/share.php?url=[post-url]&title=[post-title]'],
+                ['stumbleupon','http://www.stumbleupon.com/submit?url=[post-url]&title=[post-title]'],
+                ['telegram','tg://msg?text=[post-url] [post-title]'],
+                ['line','http://line.me/R/msg/text/?[post-url] [post-title]'],
+                ['viber','viber://forward?text=[post-url] [post-title]'],
+                ['pocket','https://getpocket.com/save?url=[post-url]&title=[post-title]'],
+                ['fbmessenger','fb-messenger://share?link=[post-url]'],
+                ['tumblr','http://www.tumblr.com/share?v=3&u=[post-url]&t=[post-title]']
                 ]);
-
+    
 export default class ccpSocialShare extends LightningElement {
     @api iconType = 'circle';
     @api alignment = 'center';
@@ -27,7 +36,39 @@ export default class ccpSocialShare extends LightningElement {
     @api rightMargin = '0';
     @api titleStyle = '';
 
+    @api hideFacebook = 'None';
+    @api hideLinkedin = 'None';
+    @api hidePinterest = 'None';
+    @api hideTwitter = 'None';
+    @api hideWhatsapp = 'None';
+    @api hideEmail = 'None';
+    @api hideLink = 'None';
+    @api hideVkontakte = 'None';
+    @api hideStumbleupon = 'None';
+    @api hideTelegram = 'None';
+    @api hideLine = 'None';
+    @api hideViber = 'None';
+    @api hidePocket = 'None';
+    @api hideFbmessenger = 'None';
+    @api hideTumblr = 'None';
 
+    @api imageOverrideFacebook;
+    @api imageOverrideLinkedin;
+    @api imageOverridePinterest;
+    @api imageOverrideTwitter;
+    @api imageOverrideWhatsapp;
+    @api imageOverrideEmail;
+    @api imageOverrideLink;
+    @api imageOverrideVkontakte;
+    @api imageOverrideStumbleupon;
+    @api imageOverrideTelegram;
+    @api imageOverrideLine;
+    @api imageOverrideViber;
+    @api imageOverridePocket;
+    @api imageOverrideFbmessenger;
+    @api imageOverrideTumblr;
+
+    @api order = 'facebook,linkedin,pinterest,twitter,whatsapp,email,link,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr';
     
     @api
     get titleClasses()
@@ -68,6 +109,19 @@ export default class ccpSocialShare extends LightningElement {
 
     connectedCallback()
     {
+        try {
+            this.order = (this.order !== undefined && this.order.trim() !== '') ? this.order.trim().toLowerCase() : '' ;
+            let orderList = this.order.split(',');
+            for(let i=0;i<orderList.length;i++)
+            {
+                let name = (orderList[i] !== undefined && orderList[i].trim() !== '') ? orderList[i].trim() : undefined;
+                if(urlMap.get(name) !== undefined)
+                {
+                    this.buildSS(name); 
+                }     
+            }
+        } catch(err){}
+
         for (const k of urlMap.keys())
         {
             this.buildSS(k);
@@ -77,21 +131,47 @@ export default class ccpSocialShare extends LightningElement {
 
     buildSS(name)
     {
-        let ss = {};
-        ss.name = name;
-        ss.url = urlMap.get(name);
-        ss.image = SOCIALICONS_URL + '/' + this.iconType + '/' + name +'.png';
-        this.socialServices.push(ss);
-        this.socialServicesMap.set(name, ss);
+        if(this.socialServicesMap.get(name) === undefined)
+        {
+            let ss = {};
+            ss.name = name;
+            ss.url = urlMap.get(name);
+            ss.hide = this.calculateHide(this['hide' + this.capitalize(name)]);
+            ss.image = (this['imageOverride' + this.capitalize(name)] !== undefined && this['imageOverride' + this.capitalize(name)].trim() !== '') ? this['imageOverride' + this.capitalize(name)] : SOCIALICONS_URL + '/' + this.iconType + '/' + name +'.png';
+            this.socialServices.push(ss);
+            this.socialServicesMap.set(name, ss);
+        }
+    }
+
+    calculateHide(value)
+    {
+        switch (FORM_FACTOR) {
+            case 'Small': 
+                return (value === 'All' || value === 'Mobile and Tablet' 
+                        || value === 'Mobile' || value === 'Mobile and Desktop');
+            case 'Medium':
+                return (value === 'All' || value === 'Mobile and Tablet' 
+                        || value === 'Tablet' || value === 'Tablet and Desktop');
+            default:
+                return (value === 'All' || value === 'Tablet and Desktop' 
+                        || value === 'Desktop' || value === 'Mobile and Desktop');
+        }
+    }
+
+    capitalize(value)
+    {
+        return value.charAt(0).toUpperCase() + value.slice(1);
     }
 
     handleSocialIconClick(e)
     {
         
         let name = e.currentTarget.dataset.name;
-        let currUrl = window.location.href;
+        let currUrl = (name != 'link') ? encodeURIComponent(window.location.href) : window.location.href;
+        let currTitle = (name != 'link') ? encodeURIComponent(document.title) : document.title;
         let socialUrl = urlMap.get(name);
         socialUrl = socialUrl.replace(/\[post-url\]/gi, currUrl);
+        socialUrl = socialUrl.replace(/\[post-title\]/gi, currTitle);
         let linkElement = this.template.querySelector('.calculatedSocialLink');
         linkElement.href = socialUrl;
         this.linkOutputValue = currUrl;

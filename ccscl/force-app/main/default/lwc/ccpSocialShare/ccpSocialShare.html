@@ -5,9 +5,11 @@
                 {title}
             </div>
             <template for:each={socialServices} for:item='ss'>
-                <a key={ss.name} data-name={ss.name} onclick={handleSocialIconClick}>
-                    <img src={ss.image} width={iconWidth} style={imgStyle}/>
-                </a>
+                <template if:false={ss.hide}>
+                    <a key={ss.name} data-name={ss.name} onclick={handleSocialIconClick} title={ss.name}>
+                        <img src={ss.image} width={iconWidth} style={imgStyle} alt={ss.name}/>
+                    </a>
+                </template>
             </template>
         </div>
     </div>

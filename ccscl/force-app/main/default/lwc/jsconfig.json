@@ -2,7 +2,14 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/ccpSocialShare": [
+                "ccpSocialShare/ccpSocialShare.js"
+            ],
+            "c/ccpSocialShareCopyClipboard": [
+                "ccpSocialShareCopyClipboard/ccpSocialShareCopyClipboard.js"
+            ]
+        }
     },
     "include": [
         "**/*",
