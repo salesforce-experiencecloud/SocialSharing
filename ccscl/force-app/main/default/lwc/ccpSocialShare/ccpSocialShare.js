@@ -36,6 +36,11 @@ export default class ccpSocialShare extends LightningElement {
     @api leftMargin = '0';
     @api rightMargin = '0';
     @api titleStyle = '';
+    @api autoHide = false;
+    @api socialShareIconLinkStyle = 'margin-bottom: 20px;';
+    @api topLevelDivStyle = '';
+    @api socialShareTextCollapsed = '[+]';
+    @api socialShareTextExpanded = '[-]';
 
     @api hideFacebook = 'None';
     @api hideLinkedin = 'None';
@@ -55,6 +60,7 @@ export default class ccpSocialShare extends LightningElement {
     @api hideTumblr = 'None';
     
 
+    @api socialShareIconImageOverride;
     @api imageOverrideFacebook;
     @api imageOverrideLinkedin;
     @api imageOverridePinterest;
@@ -96,7 +102,7 @@ export default class ccpSocialShare extends LightningElement {
     @api
     get topLevelStyle()
     {
-        return 'margin-left: ' + this.leftMargin + '; margin-right: ' + this.rightMargin + ';';
+        return 'margin-left: ' + this.leftMargin + '; margin-right: ' + this.rightMargin + '; ' + this.topLevelDivStyle;
     }
 
     @api
@@ -109,6 +115,36 @@ export default class ccpSocialShare extends LightningElement {
     get imgStyle()
     {
         return (this.alignment === 'center' || this.alignment === 'left' || this.alignment === 'right') ? 'margin-left: ' + this.iconMargin + 'px; margin-right: ' + this.iconMargin + 'px;' : 'margin-top: ' + this.iconMargin + 'px; margin-bottom: ' + this.iconMargin + 'px;';
+    }
+
+    @api 
+    get isFixed()
+    {
+        return (this.alignment === 'fixed-left' || this.alignment === 'fixed-right');
+    }
+
+    @api 
+    get isFixedLeft()
+    {
+        return this.alignment === 'fixed-left';
+    }
+
+    @api 
+    get isFixedRight()
+    {
+        return this.alignment === 'fixed-right';
+    }
+
+    @api
+    get socialShareImgUrl()
+    {
+        return (this.socialShareIconImageOverride !== undefined && this.socialShareIconImageOverride.trim() !== '') ? this.socialShareIconImageOverride : SOCIALICONS_URL + '/' + this.iconType + '/socialshare.png';
+    }
+
+    @api
+    get isAutoHideAndFixed()
+    {
+        return this.isFixed && this.autoHide;
     }
 
     connectedCallback()
@@ -142,6 +178,8 @@ export default class ccpSocialShare extends LightningElement {
             ss.url = urlMap.get(name);
             ss.hide = this.calculateHide(this['hide' + this.capitalize(name)]);
             ss.image = (this['imageOverride' + this.capitalize(name)] !== undefined && this['imageOverride' + this.capitalize(name)].trim() !== '') ? this['imageOverride' + this.capitalize(name)] : SOCIALICONS_URL + '/' + this.iconType + '/' + name +'.png';
+            ss.classes = 'socialShareLink';
+            ss.classes += (this.isAutoHideAndFixed) ? ' slds-hide' : '' ;
             this.socialServices.push(ss);
             this.socialServicesMap.set(name, ss);
         }
@@ -199,5 +237,36 @@ export default class ccpSocialShare extends LightningElement {
     {
         this.openModal = false
     } 
+
+    handleSocialShareClick(e)
+    {
+        let socialLinks = this.template.querySelectorAll('.socialShareLink');
+        socialLinks.forEach(function(socialLink)
+        {
+            if(socialLink.classList.contains('slds-hide'))
+            {
+                socialLink.classList.remove('slds-hide');
+            }
+            else
+            {
+                socialLink.classList.add('slds-hide');
+            }
+        });
+
+        if(this.socialShareTextCollapsed !== undefined && this.socialShareTextCollapsed.trim() !== ''
+            && this.socialShareTextExpanded !== undefined && this.socialShareTextExpanded.trim() !== '')
+        {
+            let socialShareText = this.template.querySelector('[data-target-id="socialShareText"]');
+            if(socialShareText.innerHTML == this.socialShareTextCollapsed)
+            {
+                socialShareText.innerHTML = this.socialShareTextExpanded;
+            }
+            else
+            {   
+                socialShareText.innerHTML = this.socialShareTextCollapsed;
+            }
+        }
+
+    }
 
 }

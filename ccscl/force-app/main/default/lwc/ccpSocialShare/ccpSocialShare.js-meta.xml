@@ -10,8 +10,14 @@
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
             <property name="alignment" type="String" datasource="center,left,right,fixed-left,fixed-right" label="Alignment" description="Alignment: Center, Left, Right, Fixed Left, Fixed Right" default="center"/>
+            <property name="autoHide" type="Boolean" label="Auto Hide Icons When Fixed" description="Auto hide icons when fixed alignment is chosen. There will be one social share icon which when clicked, shows and hides the rest of the icons." default="false"/>
+            <property name="socialShareTextCollapsed" type="String" label="Auto Hide Social Share Icon Text - Collapsed" description="Text next to the Social Share Icon when Auto Hide is Enabled and Icons are collapsed" default="[+]"/>
+            <property name="socialShareTextExpanded" type="String" label="Auto Hide Social Share Icon Text - Expanded" description="Text next to the Social Share Icon when Auto Hide is Enabled and Icons are expanded" default="[-]"/>
+            <property name="socialShareIconLinkStyle" type="String" label="Auto Hide Social Share Icon Link Style" description="Style for the link wrapping the Social Share Icon" default="margin-bottom: 20px;"/>
+            <property name="socialShareIconImageOverride" type="String" label="Override Image Url for Auto Hide Social Share Icon" description="Override Image Url for Auto Hide Social Share Icon. Square dimensions, example: 120px X 120px" default=""/>
             <property name="leftMargin" type="String" label="Left Margin" description="Left Margin" default="0"/>
             <property name="rightMargin" type="String" label="Right Margin" description="Right Margin" default="0"/>
+            <property name="topLevelDivStyle" type="String" label="Top Level Div Style" description="Top Level Div Style" default=""/>
             <property name="title" type="String" label="Title" description="Title - will not display in 'fixed' Alignment" default="Social Share: "/>
             <property name="titleAlignment" type="String" datasource="left,center,right" label="Title Alignment" description="Title Alignment: Left, Center, Right" default="left"/>
             <property name="titleStyle" type="String" label="Title Style" description="Title Style (CSS)" default=""/>

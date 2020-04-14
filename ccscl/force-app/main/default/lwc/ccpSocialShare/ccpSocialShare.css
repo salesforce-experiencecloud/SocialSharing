@@ -74,3 +74,13 @@
 {
     right: 0;
 }
+
+.fixed.fixed-right .socialShareLink
+{
+    text-align: right;
+}
+
+.fixed.fixed-left .socialShareLink
+{
+    text-align: left;
+}
