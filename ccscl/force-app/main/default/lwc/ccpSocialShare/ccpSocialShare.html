@@ -1,11 +1,11 @@
 <template>
     <div align={alignmentValue} class={topLevelClass} style={topLevelStyle}>
-        <div class="container" style={containerStyle} >
+        <div class="container slds-scrollable_y" style={containerStyle} >
             <div class={titleClasses} style={titleStyle}>
                 {title}
             </div>
             <template if:true={isAutoHideAndFixed}>
-                <a data-name="socialshare" onclick={handleSocialShareClick} title="Social Share" style={socialShareIconLinkStyle}>
+                <a data-name="socialshare" onclick={handleSocialShareClick} style={socialShareIconLinkStyle} onkeypress={handleKeyPress} tabindex="0">
                     <template if:true={isFixedRight}>
                         <span data-target-id="socialShareText" class="slds-p-horizontal_xx-small">{socialShareTextCollapsed}</span>
                     </template>
@@ -19,7 +19,7 @@
             </template>
             <template for:each={socialServices} for:item='ss'>
                 <template if:false={ss.hide}>
-                    <a key={ss.name} data-name={ss.name} class={ss.classes} onclick={handleSocialIconClick} title={ss.name}>
+                    <a key={ss.name} data-name={ss.name} class={ss.classes} onclick={handleSocialIconClick} onkeypress={handleSocialIconKeyPress} tabindex="0">
                         <img src={ss.image} width={iconWidth} style={imgStyle} alt={ss.name}/>
                     </a>
                 </template>

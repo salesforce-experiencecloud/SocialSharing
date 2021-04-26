@@ -1,3 +1,7 @@
+.container {
+    height: 80vh;
+}
+
 .container a:first-of-type > img 
 {
     margin-left: 0 !important;

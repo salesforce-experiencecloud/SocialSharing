@@ -22,6 +22,9 @@ const urlMap = new Map([
                 ['tumblr','http://www.tumblr.com/share?v=3&u=[post-url]&t=[post-title]']
                 ]);
     
+    const KEY_ENTER = 13;
+    const KEY_SPACE = 32;
+    
 export default class ccpSocialShare extends LightningElement {
     @api iconType = 'circle';
     @api alignment = 'center';
@@ -212,6 +215,17 @@ export default class ccpSocialShare extends LightningElement {
         return value.charAt(0).toUpperCase() + value.slice(1);
     }
 
+    handleSocialIconKeyPress(e)
+    {
+        switch (e.which) {
+            case KEY_ENTER:
+            case KEY_SPACE: {
+                this.handleSocialIconClick(e);
+                break;
+            }
+        }
+    }
+
     handleSocialIconClick(e)
     {
         let currUrlTmp;
@@ -250,8 +264,20 @@ export default class ccpSocialShare extends LightningElement {
         this.openModal = false
     } 
 
+    handleKeyPress(e)
+    {
+        switch (e.which) {
+            case KEY_ENTER:
+            case KEY_SPACE: {
+                this.handleSocialShareClick(e);
+                break;
+            }
+        }
+    }
+
     handleSocialShareClick(e)
     {
+        e.preventDefault();
         let socialLinks = this.template.querySelectorAll('.socialShareLink');
         socialLinks.forEach(function(socialLink)
         {
