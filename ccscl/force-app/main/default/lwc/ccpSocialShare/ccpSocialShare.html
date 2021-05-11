@@ -7,13 +7,19 @@
             <template if:true={isAutoHideAndFixed}>
                 <a data-name="socialshare" onclick={handleSocialShareClick} style={socialShareIconLinkStyle} onkeypress={handleKeyPress} tabindex="0">
                     <template if:true={isFixedRight}>
-                        <span data-target-id="socialShareText" class="slds-p-horizontal_xx-small">{socialShareTextCollapsed}</span>
+                        <span data-target-id="socialShareText" class="slds-p-horizontal_xx-small">
+                            {socialShareText}
+                            <span class="slds-assistive-text">{socialShareAssistiveText}</span>
+                        </span>
                     </template>
 
                     <img src={socialShareImgUrl} width={iconWidth} style={imgStyle} alt="Social Share"/>
 
                     <template if:true={isFixedLeft}>
-                        <span data-target-id="socialShareText" class="slds-p-horizontal_xx-small">{socialShareTextCollapsed}</span>
+                        <span data-target-id="socialShareText" class="slds-p-horizontal_xx-small">
+                            {socialShareText}
+                            <span class="slds-assistive-text">{socialShareAssistiveText}</span>
+                        </span>
                     </template>
                 </a>
             </template>

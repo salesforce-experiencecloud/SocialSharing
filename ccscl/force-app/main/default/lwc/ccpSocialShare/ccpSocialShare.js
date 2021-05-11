@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import SOCIALICONS_URL from '@salesforce/resourceUrl/Social_Icons';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import FORM_FACTOR from '@salesforce/client/formFactor';
@@ -83,6 +83,9 @@ export default class ccpSocialShare extends LightningElement {
 
     @api order = 'facebook,linkedin,pinterest,twitter,whatsapp,email,link,reddit,vkontakte,stumbleupon,telegram,line,viber,pocket,fbmessenger,tumblr';
     
+    @track socialShareText = '';
+    @track socialShareAssistiveText = '';
+
     @api
     get titleClasses()
     {
@@ -176,6 +179,13 @@ export default class ccpSocialShare extends LightningElement {
         {
             this.buildSS(k);
         }
+
+        if(this.socialShareTextCollapsed !== undefined && this.socialShareTextCollapsed !== null && this.socialShareTextCollapsed.trim() !== '')
+        {
+            this.socialShareText = this.socialShareTextCollapsed;
+        }
+
+        this.socialShareAssistiveText = 'Social Share Collapsed';
 
     }
 
@@ -294,14 +304,15 @@ export default class ccpSocialShare extends LightningElement {
         if(this.socialShareTextCollapsed !== undefined && this.socialShareTextCollapsed.trim() !== ''
             && this.socialShareTextExpanded !== undefined && this.socialShareTextExpanded.trim() !== '')
         {
-            let socialShareText = this.template.querySelector('[data-target-id="socialShareText"]');
-            if(socialShareText.innerHTML == this.socialShareTextCollapsed)
+            if(this.socialShareText === this.socialShareTextCollapsed)
             {
-                socialShareText.innerHTML = this.socialShareTextExpanded;
+                this.socialShareText = this.socialShareTextExpanded;
+                this.socialShareAssistiveText = 'Social Share Expanded';
             }
             else
             {   
-                socialShareText.innerHTML = this.socialShareTextCollapsed;
+                this.socialShareText = this.socialShareTextCollapsed;
+                this.socialShareAssistiveText = 'Social Share Collapsed';
             }
         }
 
