@@ -53,12 +53,11 @@ This package is free to use, but is not an official [salesforce.com](http://sale
 
 |Property Label	|Aura Property API Name	|LWC Property API Name	|Type	|Description	|
 |---	|---	|---	|---	|---	|
-|Alignment	|alignment	|alignment	|String	|Set the alignment of the social share component. Options are:<br>
-- fixed-right: absolute positioning to the right of the page<br>
-- fixed-left: absolute positioning to the left of the page<br>
-- right: within the container it is placed in, aligned to the right<br>
-- left: within the container it is placed in, aligned to the left<br>
-- center: within the container it is placed in, centered	|
+|Alignment	|alignment	|alignment	|String	|Set the alignment of the social share component. Options are:<br><ul><li>fixed-right: absolute positioning to the right of the page</li>
+<li>fixed-left: absolute positioning to the left of the page</li>
+<li>right: within the container it is placed in, aligned to the right</li>
+<li>left: within the container it is placed in, aligned to the left</li>
+<li>center: within the container it is placed in, centered</li></ul>	|
 |Auto Hide Icons When Fixed	|autoHide	|auto-hide	|Boolean	|When checked and if the Alignment is fixed-right or fixed-left, the social share icons are automatically hidden and only show when the user clicks on the image to expand the icons. When unchecked, the social icons are visible all the time.	|
 |Auto Hide Social Share Icon Text - Collapsed	|socialShareTextCollapsed	|social-share-text-collapsed	|String	|Text value to show next to the auto hide icon when social icons are collapsed	|
 |Auto Hide Social Share Icon Text - Expanded	|socialShareTextExpanded	|social-share-text-expanded	|String	|Text value to show next to the auto hide icon when social icons are expanded	|
