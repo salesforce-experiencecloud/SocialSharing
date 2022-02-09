@@ -9,7 +9,7 @@
 * * *
 
 
-# Overview: **** 
+# Overview:
 
 ![image](https://user-images.githubusercontent.com/8514282/153286663-27a37373-484b-465d-893d-338d2bdc962f.png)
 
@@ -53,8 +53,7 @@ This package is free to use, but is not an official [salesforce.com](http://sale
 
 |Property Label	|Aura Property API Name	|LWC Property API Name	|Type	|Description	|
 |---	|---	|---	|---	|---	|
-|Alignment	|alignment	|alignment	|String	|Set the alignment of the social share component. Options are:
-- fixed-right: absolute positioning to the right of the page
+|Alignment	|alignment	|alignment	|String	|Set the alignment of the social share component. Options are: - fixed-right: absolute positioning to the right of the page
 - fixed-left: absolute positioning to the left of the page
 - right: within the container it is placed in, aligned to the right
 - left: within the container it is placed in, aligned to the left
