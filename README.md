@@ -68,15 +68,7 @@ This package is free to use, but is not an official [salesforce.com](http://sale
 |Width of Social Icon	|iconWidth	|icon-width	|Integer	|Width of the social icon images	|
 |Social Icon Margins	|iconMargin	|icon-margin	|Integer	|Margin in pixels between each of the Social Icons	|
 |Social Icon Type	|iconType	|icon-type	|String	|Type of social icon to render. Options are:<ul><li>circle</li><li>square</li></ul>	|
-|Hide Facebook	|hideFacebook	|hide-facebook	|String	|Hide social channel on certain form factors. Options are:
-- None - show on all form factors
-- Mobile - hide on mobile form factor
-- Tablet - hide on tablet form factor
-- Desktop - hide on desktop form factor
-- Mobile and Tablet - hide on mobile and tablet form factors
-- Mobile and Desktop - hide on mobile and desktop form factors
-- Tablet and Desktop - hide on tablet and desktop form factors
-- All - hide on all form factors	|
+|Hide Facebook	|hideFacebook	|hide-facebook	|String	|Hide social channel on certain form factors. Options are:<ul><li>None - show on all form factors</li><li>Mobile - hide on mobile form factor</li><li>Tablet - hide on tablet form factor</li><li>Desktop - hide on desktop form factor</li><li>Mobile and Tablet - hide on mobile and tablet form factors</li><li>Mobile and Desktop - hide on mobile and desktop form factors</li><li>Tablet and Desktop - hide on tablet and desktop form factors</li><li>All - hide on all form factors</li></ul>	|
 |Hide Linkedin	|hideLinkedin	|hide-linkedin	|String	|Hide social channel on certain form factors. Options are:
 - None - show on all form factors
 - Mobile - hide on mobile form factor
