@@ -53,11 +53,7 @@ This package is free to use, but is not an official [salesforce.com](http://sale
 
 |Property Label	|Aura Property API Name	|LWC Property API Name	|Type	|Description	|
 |---	|---	|---	|---	|---	|
-|Alignment	|alignment	|alignment	|String	|Set the alignment of the social share component. Options are:<br><ul><li>fixed-right: absolute positioning to the right of the page</li>
-<li>fixed-left: absolute positioning to the left of the page</li>
-<li>right: within the container it is placed in, aligned to the right</li>
-<li>left: within the container it is placed in, aligned to the left</li>
-<li>center: within the container it is placed in, centered</li></ul>	|
+|Alignment	|alignment	|alignment	|String	|Set the alignment of the social share component. Options are:<br><ul><li>fixed-right: absolute positioning to the right of the page</li><li>fixed-left: absolute positioning to the left of the page</li><li>right: within the container it is placed in, aligned to the right</li><li>left: within the container it is placed in, aligned to the left</li><li>center: within the container it is placed in, centered</li></ul>	|
 |Auto Hide Icons When Fixed	|autoHide	|auto-hide	|Boolean	|When checked and if the Alignment is fixed-right or fixed-left, the social share icons are automatically hidden and only show when the user clicks on the image to expand the icons. When unchecked, the social icons are visible all the time.	|
 |Auto Hide Social Share Icon Text - Collapsed	|socialShareTextCollapsed	|social-share-text-collapsed	|String	|Text value to show next to the auto hide icon when social icons are collapsed	|
 |Auto Hide Social Share Icon Text - Expanded	|socialShareTextExpanded	|social-share-text-expanded	|String	|Text value to show next to the auto hide icon when social icons are expanded	|
@@ -67,16 +63,11 @@ This package is free to use, but is not an official [salesforce.com](http://sale
 |Right Margin	|rightMargin	|right-margin	|String	|right margin value of the component	|
 |Top Level Div Style	|topLevelDivStyle	|top-level-div-style	|String	|CSS Style for the top level Div wrapping the entire component	|
 |Title	|title	|title	|String	|Title - will not display in 'fixed' Alignment	|
-|Title Alignment	|titleAlignment	|title-alignment	|String	|Alignment of the title when not in fixed alignment mode. Options are:
-- left
-- right
-- center	|
+|Title Alignment	|titleAlignment	|title-alignment	|String	|Alignment of the title when not in fixed alignment mode. Options are:<ul><li>left</li><li>right</li><li>center</li></ul>	|
 |Title Style	|titleStyle	|title-style	|String	|CSS Style of the title	|
 |Width of Social Icon	|iconWidth	|icon-width	|Integer	|Width of the social icon images	|
 |Social Icon Margins	|iconMargin	|icon-margin	|Integer	|Margin in pixels between each of the Social Icons	|
-|Social Icon Type	|iconType	|icon-type	|String	|Type of social icon to render. Options are:
-- circle
-- square	|
+|Social Icon Type	|iconType	|icon-type	|String	|Type of social icon to render. Options are:<ul><li>circle</li><li>square</li></ul>	|
 |Hide Facebook	|hideFacebook	|hide-facebook	|String	|Hide social channel on certain form factors. Options are:
 - None - show on all form factors
 - Mobile - hide on mobile form factor
