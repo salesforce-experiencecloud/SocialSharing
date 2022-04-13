@@ -10,7 +10,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class CcpSocialShareCopyClipboard extends LightningElement {
 
-    @api linkOutputValue = window.location.href;
+    @api linkOutputValue = document.URL;
 
     renderedCallback()
     {

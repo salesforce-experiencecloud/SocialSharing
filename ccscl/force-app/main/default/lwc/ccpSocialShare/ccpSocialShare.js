@@ -42,7 +42,7 @@ export default class ccpSocialShare extends LightningElement {
     @api socialServicesMap = new Map();
     @api title = 'Social Share: ';
     @api openModal = false;
-    @api linkOutputValue;
+    @api linkOutputValue = document.URL;
     @api leftMargin = '0';
     @api rightMargin = '0';
     @api titleStyle = '';
@@ -164,12 +164,6 @@ export default class ccpSocialShare extends LightningElement {
     {
 
         try {
-            this.linkOutputValue = window.location.href;
-        } catch(err){
-            this.linkOutputValue = document.URL;
-        }
-
-        try {
             this.order = (this.order !== undefined && this.order.trim() !== '') ? this.order.trim().toLowerCase() : '' ;
             let orderList = this.order.split(',');
             for(let i=0;i<orderList.length;i++)
@@ -245,12 +239,8 @@ export default class ccpSocialShare extends LightningElement {
 
     handleSocialIconClick(e)
     {
-        let currUrlTmp;
-        try {
-            currUrlTmp = window.location.href;
-        } catch(err){
-            currUrlTmp = document.URL;
-        }
+        let currUrlTmp = document.URL;
+        
         let name = e.currentTarget.dataset.name;
         let currUrl = (name != 'link') ? encodeURIComponent(currUrlTmp) : currUrlTmp;
         let currTitle = (name != 'link') ? encodeURIComponent(document.title) : document.title;
