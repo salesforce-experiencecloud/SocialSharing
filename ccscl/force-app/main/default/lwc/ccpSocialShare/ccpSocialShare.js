@@ -15,7 +15,7 @@ const urlMap = new Map([
                 ['linkedin', 'https://www.linkedin.com/shareArticle?url=[post-url]&title=[post-title]'],
                 ['pinterest','https://pinterest.com/pin/create/bookmarklet/?url=[post-url]&description=[post-title]'],
                 ['twitter','https://twitter.com/share?url=[post-url]&text=[post-title]'],
-                ['whatsapp','https://wa.me/?text=[post-url] [post-title] [post-title]'],
+                ['whatsapp','https://wa.me/?text=[post-url] [post-title]'],
                 ['email', 'mailto:?subject=Check out this link: [post-title]&body=Check out this link: [post-title] - [post-url]'],
                 ['link','[post-url]'],
                 ['reddit','http://www.reddit.com/submit?url=[post-url]&title=[post-title]'],
