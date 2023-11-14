@@ -88,3 +88,7 @@
 {
     text-align: left;
 }
+
+.slds-modal__close .closeIcon {
+    --slds-c-icon-color-foreground-default: white;
+}
